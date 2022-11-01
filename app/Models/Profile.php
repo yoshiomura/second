@@ -16,8 +16,14 @@ class profile extends Model
         'My_training_menu'
         ];
     
-    public function getPaginateByLimit(int $limit_count = 10)
+       public function training()   
 {
-    return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    return $this->hasMany(Training::class);  
 }
+   
+   public function getByProfile(int $limit_count = 5)
+{
+     return $this->training()->with('profile')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+}
+   
 }

@@ -8,16 +8,13 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <p class="edit">[<a href="/trainings/{{ $training->id }}/edit">edit</a>]</p>
-        <h1 class="name">
-            {{ $training->name }}
-        </h1>
-        <div class="content">
-            <div class="content__Training">
-                <h3>本文</h3>
-                <p>{{ $training->body }}</p>    
-            </div>
-        </div>
+        <h2 class='name'>名前   {{ $training->name }}</h2>
+                    <h2 class='title'>トレーニング名   {{ $training->title }}</h2>
+                    <h2 class='objective'>トレーニング目的   {{ $training->objective }}</h2>
+                    <h2 class='body'>口コミ内容   {{ $training->body }}</h2>
+                    <h2 class='review'>レビュー   {{ $training->review }}</h2>
+                    <h2 class='movie'>動画   {{ $training->movie }}</h2>
+                    <h3 href="/names/{{ $training->Name->id }}">トレーニング部位　　　{{ $training->Name->exercise }}
         <div class="footer">
             <a href="/">戻る</a>
         </div>
