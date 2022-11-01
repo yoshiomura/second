@@ -15,8 +15,14 @@ return new class extends Migration
     {
         Schema::create('trainings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name', 50);
+            $table->string('title', 50);
+            $table->string('objective');
             $table->string('body');
+            $table->integer('review');
+            $table->string('movie');
+            $table->foreignId('name_id')->constrained();
+            //$table->foreignId('profile_id')->constrained();
             $table->SoftDeletes();
             $table->timestamps();
         });

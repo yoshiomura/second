@@ -10,21 +10,16 @@ class Name extends Model
     use HasFactory;
     
      protected $fillable = [
-        'exercise',
-        'category_id',
-        'training_id'
+        'exercise'
         ];
     
-    public function getPaginateByLimit(int $limit_count = 5)
-    {
-        return $this::with('category')->this::with('training')->orderby('updated_at', 'DESC')->paginate($limit_count);
-    }
-     public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
-    public function training()
-    {
-        return $this->belongsTo(Training::class);
-    }
+    public function training()   
+{
+    return $this->hasMany(Training::class);  
+}
+    public function getByName(int $limit_count = 5)
+{
+     return $this->training()->with('name')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+}
+    
 }
