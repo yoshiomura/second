@@ -19,10 +19,9 @@ return new class extends Migration
             $table->string('title', 50);
             $table->string('objective');
             $table->string('body');
-            $table->integer('review');
             $table->string('movie');
             $table->foreignId('name_id')->constrained();
-            //$table->foreignId('profile_id')->constrained();
+            $table->foreignId('profile_id')->nullable()->constrained();
             $table->SoftDeletes();
             $table->timestamps();
         });

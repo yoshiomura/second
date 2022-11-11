@@ -7,8 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
-     public function getPaginateByLimit(int $limit_count = 10)
+     use HasFactory;
+    
+     protected $fillable = [
+        'review',
+        'training_id'
+        ];
+        
+     public function training()   
 {
-    return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    return $this->belongsTo(Training::class);  
+}
+    public function getByReview(int $limit_count = 5)
+{
+     return $this->training()->with('review')->orderBy('updated_at', 'DESC')->paginate($limit_count);
 }
 }

@@ -18,7 +18,6 @@ class TrainingRequest extends FormRequest
             'training.title' => 'required|string|max:100',
             'training.objective' => 'required|string|max:4000',
             'training.body' => 'required|string|max:4000',
-            'training.review' => 'required|integer|max:3'
         ];
     }
 }

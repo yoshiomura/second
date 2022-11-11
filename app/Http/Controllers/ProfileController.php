@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function index(Profile $profile)
+   public function index(Profile $profile)
 {
-    return view('profiles.index')->with(['trainings' => $profile->getByProfile()]);
+    return view('profiles.index')->with(['profiles' => $profile->getByProfile()]);
 }
 }
