@@ -11,10 +11,18 @@
         <h2 class='name'>名前   {{ $training->name }}</h2>
                     <h2 class='title'>トレーニング名   {{ $training->title }}</h2>
                     <h2 class='objective'>トレーニング目的   {{ $training->objective }}</h2>
-                    <h2 class='body'>口コミ内容   {{ $training->body }}</h2>
-                    <h2 class='review'>レビュー   {{ $training->review }}</h2>
+                    <h2 class='body'>トレーニング内容   {{ $training->body }}</h2>
                     <h2 class='movie'>動画   {{ $training->movie }}</h2>
-                    <h3 href="/names/{{ $training->Name->id }}">トレーニング部位　　　{{ $training->Name->exercise }}
+                    <h2 href="/names/{{ $training->Name->id }}">トレーニング部位　　　{{ $training->Name->exercise }}</h2>
+                    @foreach ($reviews as $review)
+                    <p>{{ $review->review }}</p>
+                    @endforeach
+                    <form action="/trainings/{{ $training->id }}" method="POST">
+                        @csrf
+                        <textarea name="review[review]" placeholder="レビュー投稿"></textarea>
+                        <input type="hidden" name="review[training_id]" value={{ $training->id }}>
+                        <input type="submit" value="保存">
+                    </form>
         <div class="footer">
             <a href="/">戻る</a>
         </div>

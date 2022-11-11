@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\NameController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -18,13 +19,16 @@ use App\Http\Controllers\ProfileController;
 
 Route::get('/', [TrainingController::class, 'index']); //トップ画面
 Route::get('/trainings/create', [TrainingController::class, 'create']);//投稿画面
-//Route::get('/trainings/make', [TrainingController::class, 'make']);
+Route::get('/trainings/make', [TrainingController::class, 'make']);//レビュー投稿画面//
+//Route::get('/trainings/{training}', [TrainingController::class,'detail']);
+Route::post('/trainings/{training}', [TrainingController::class, 'keep']);
 Route::get('/trainings/{training}', [TrainingController::class, 'show']);//投稿画面詳細
-Route::post('/trainings', [TrainingController::class, 'store']);//投稿保存
-Route::put('/trainings/{training}', [TrainingController::class, 'update']);//投稿更新
+Route::post('/trainings', [TrainingController::class, 'store']);//トレーニング投稿投稿保存
+//Route::put('/trainings/{training}', [TrainingController::class, 'update']);//投稿更新
 Route::delete('/trainings/{training}', [TrainingController::class,'delete']);//投稿削除
 Route::get('/names/{name}', [NameController::class,'index']);
-//Route::get('/profiles/{profile}', [ProfileController::class, 'index']);
+Route::get('/reviews/{review}', [ReviewController::class,'index']);
+
 
 
 

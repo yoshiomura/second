@@ -19,19 +19,14 @@
                 <p class="title__error" style="color:red">{{ $errors->first('training.title') }}</p>
             </div>
             <div class="objective">
-                <h2>トレーニング内容</h2>
+                <h2>トレーニング目的</h2>
                 <textarea name="training[objective]" placeholder="トレーニング内容">{{ old('training.objective') }}</textarea>
                 <p class="objective__error" style="color:red">{{ $errors->first('training.objective') }}</p>
             </div>
             <div class="body">
-                <h2>口コミ内容</h2>
+                <h2>トレーニング内容</h2>
                 <textarea name="training[body]" placeholder="口コミ内容">{{ old('training.body') }}</textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('training.body') }}</p>
-            </div>
-            <div class="review">
-                <h2>評価</h2>
-                <textarea name="training[review]" placeholder="">{{ old('training.review') }}</textarea>
-                <p class="review__error" style="color:red">{{ $errors->first('training.review') }}</p>
             </div>
             <div class="movie">
                 <h2>動画</h2>
@@ -45,7 +40,6 @@
                   <option value="{{ $name->id }}">{{ $name->exercise }}</option>
             @endforeach
             </select>
-            
             </div>
             <input type="submit" value="保存"/>
             

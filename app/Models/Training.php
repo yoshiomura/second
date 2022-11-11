@@ -16,19 +16,28 @@ class Training extends Model
         'title',
         'objective',
         'body',
-        'review',
         'movie',
-        'name_id'
-        //'profile_id'
+        'name_id',
+        'review_id',
+        'profile_id'
         ];
     
+    public function getByReview(int $limit_count = 5)
+    {
+         return $this->reviews()->with('training')->get();
+    }
+
      public function getPaginateByLimit(int $limit_count = 10)
 {
-    return $this::with('name')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    return $this::with(['name','reviews'])->orderBy('updated_at', 'DESC')->paginate($limit_count);
 }
     public function name()
 {
     return $this->belongsTo(Name::class);
+}
+ public function reviews()
+{
+    return $this->hasMany(Review::class);
 }
    // public function profile()
 //{
