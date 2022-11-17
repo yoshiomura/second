@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('body');
             $table->string('movie');
             $table->foreignId('name_id')->constrained();
-            $table->foreignId('profile_id')->nullable()->constrained();
             $table->SoftDeletes();
             $table->timestamps();
         });

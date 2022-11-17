@@ -5,7 +5,10 @@
         <title>トレーニング投稿画面</title>
     </head>
     <body>
-        <h1>トレーニング投稿画面</h1>
+        <x-app-layout>
+        <x-slot name="header">
+            トレーニング投稿画面
+            </x-slot>
         <form action="/trainings" method="POST">
             @csrf
             <div class="name">
@@ -47,5 +50,6 @@
         <div class="footer">
             <a href="/">戻る</a>
             </div>
+            </x-app-layout>
     </body>
 </html>

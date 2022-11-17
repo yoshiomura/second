@@ -14,7 +14,6 @@ class TrainingRequest extends FormRequest
     public function rules()
     {
         return [
-            'training.name' => 'required|string|max:100',
             'training.title' => 'required|string|max:100',
             'training.objective' => 'required|string|max:4000',
             'training.body' => 'required|string|max:4000',
