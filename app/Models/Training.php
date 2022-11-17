@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Training extends Model
@@ -18,7 +18,6 @@ class Training extends Model
         'body',
         'movie',
         'name_id',
-        'review_id',
         'profile_id'
         ];
     
@@ -39,6 +38,8 @@ class Training extends Model
 {
     return $this->hasMany(Review::class);
 }
+
+ 
    // public function profile()
 //{
    // return $this->belongsTo(Profile::class);

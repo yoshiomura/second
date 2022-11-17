@@ -2,23 +2,36 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title> 野球のトレーニング専用口コミサイト</title>
+        
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
+    
     <body class="antialiased">
-        <h1>トップ画面</h1>
+        <x-app-layout>
+        <x-slot name="header">
+            トップ画面
+            </x-slot>
+    　　
         <a href='/trainings/create'>投稿</a>
         <div class='trainings'>
             @foreach ($trainings as $training)
                 <div class='training'>
-                    <h2 class='name'>名前   {{ $training->name }}</h2>
+                    <h2>名前　　　{{ $training->name }}</h2>
                     <h2 class='title'>トレーニング名   {{ $training->title }}</h2>
                     <h2 class='objective'>トレーニング目的   {{ $training->objective }}</h2>
                     <h2 class='body'>トレーニング内容   {{ $training->body }}</h2>
                     <h2 class='movie'>動画   {{ $training->movie }}</h2>
                     <h3 href="/names/{{ $training->Name->id }}">トレーニング部位　　　{{ $training->Name->exercise }}
                     <p><a href="/trainings/{{ $training->id }}">トレーニング投稿詳細</a></p>
+                    <button onclick="/trainings/{{$training->id}}">いいね</button>
+                    <button onclick="/trainings/{{$training->id}}">いいね解除</button>
+                    
+                   </form>
+                  
                     <form action="/trainings/{{ $training->id }}" id="form_{{ $training->id }}" method="post">
                         @csrf
                         @method('DELETE')
@@ -40,6 +53,8 @@
                 }
             }
         </script>
+        
         </div>
+        </x-app-layout>
     </body>
 </html>

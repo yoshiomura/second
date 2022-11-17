@@ -16,10 +16,7 @@ class TrainingController extends Controller
 {
     return view('trainings/index')->with(['trainings' => $training->getPaginateByLimit(10)]);
 }
-// public function index(Training $training)
-// {
-//     return view('trainings/index')->with(['reviews' => $training->getByReview()]);
-// }
+
 public function show(Training $training)
 {
     return view('trainings/show')->with(['training' => $training,'reviews' => $training -> getByReview()]);
@@ -28,10 +25,7 @@ public function create(Name $name)
 {
     return view('trainings/create')->with(['names' => $name->get()]);
 }
-public function make(Review $review)
-{
-    return view('trainings/make')->with(['reviews' => $review->get()]);
-}
+
 public function store(TrainingRequest $request, Training $training)
 {
      $input = $request['training'];

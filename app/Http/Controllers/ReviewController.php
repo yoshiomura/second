@@ -11,4 +11,5 @@ class ReviewController extends Controller
 {
     return view('reviews.index')->with(['reviews' => $review->getPaginateByLimit(10)]);
 }
+   
 }
