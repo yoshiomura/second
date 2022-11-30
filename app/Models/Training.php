@@ -17,8 +17,7 @@ class Training extends Model
         'objective',
         'body',
         'movie',
-        'name_id',
-        'profile_id'
+        'name_id'
         ];
     
     public function getByReview(int $limit_count = 5)
@@ -38,10 +37,8 @@ class Training extends Model
 {
     return $this->hasMany(Review::class);
 }
-
- 
-   // public function profile()
-//{
-   // return $this->belongsTo(Profile::class);
-//}
+public function likes()
+    {
+        return $this->belongsToMany(Training::class,'likes','training_id','user_id')->withTimestamps();
+    }
 }

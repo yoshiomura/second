@@ -4,7 +4,8 @@ function unlike(trainingId) {
       "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
     },
     url: `/unlike/${trainingId}`,
-    type: "POST",
+    method: "POST",
+    data: { "_method": "POST" }
   })
     .done(function (data, status, xhr) {
       console.log(data);

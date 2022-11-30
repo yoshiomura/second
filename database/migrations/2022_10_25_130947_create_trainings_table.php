@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title', 50);
             $table->string('objective');
             $table->string('body');
-            $table->string('movie');
+            $table->string('image_path')->nullable();
             $table->foreignId('name_id')->constrained();
             $table->SoftDeletes();
             $table->timestamps();

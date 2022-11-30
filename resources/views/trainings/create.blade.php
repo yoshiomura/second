@@ -9,6 +9,7 @@
         <x-slot name="header">
             トレーニング投稿画面
             </x-slot>
+            <div class="kakomi-box1">
         <form action="/trainings" method="POST">
             @csrf
             <div class="name">
@@ -50,6 +51,9 @@
         <div class="footer">
             <a href="/">戻る</a>
             </div>
+            </div>
             </x-app-layout>
+            
+            <link rel="stylesheet" href="{{ asset('/css/create.css')  }}" >
     </body>
 </html>

@@ -1,0 +1,45 @@
+p {
+    color: red;
+    text-align: center;
+}
+
+div,body {
+    text-align: center;
+    
+}
+a {
+   color: red;
+}
+/*.training {*/
+/*    background-color: #000000;*/
+/*}*/
+
+button {
+  border-top: 4px solid #48ecc4;
+  border-right: 4px solid #0a5f4a;
+  border-bottom: 4px solid #0f745b;
+  border-left: 4px solid #8cf9de;
+  border-radius: 0;
+  background: #11a37f;
+}
+.kakomi-box1 {
+ margin: 2em auto;
+ padding: 1em;
+ width: 50%;
+ background-color: #99CCFF; /* 背景色 */
+ border: 1px solid #000; /* 枠線 */
+}
+.kakomi-box2 {
+ margin: 2em auto;
+ padding: 1em;
+ width: 50%;
+ background-color: #99CCFF; /* 背景色 */
+ border: 1px solid #000; /* 枠線 */
+}
+.kakomi-box3 {
+       margin: 2em auto;
+ padding: 1em;
+ width: 10%;
+ background-color: #99CCFF; /* 背景色 */
+ border: 1px solid #000;
+}
